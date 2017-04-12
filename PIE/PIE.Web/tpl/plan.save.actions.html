@@ -1,0 +1,26 @@
+﻿
+<ul ng-controller="PlanActionCtrl" class="nav navbar-nav hidden-sm">
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="savePlan()"  ng-hide="hideSavePlan" >
+            <i class="fa fa-save visible-xs-inline-block"></i>
+            <span>Save</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="addMore()"  ng-hide="hideAddMore">
+            <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+            <span>Add More</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="nextStep()"  ng-hide="hideNextStep">
+            <i class="fa fa-arrow-circle-right visible-xs-inline-block"></i>
+            <span>Next Step</span>
+        </a>
+    </li>
+
+</ul>
+

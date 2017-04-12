@@ -1,0 +1,241 @@
+﻿<!-- list -->
+<ul class="nav">
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>PLANNING</span>
+    </li>
+    <!--Queries:begin-->
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <!--<i class="fa fa-fw fa-angle-down text-active"></i>-->
+            </span>
+            <i class="glyphicon glyphicon-filter icon text-success"></i>
+            <span class="font-bold">Queries</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>Queries</span>
+                </a>
+            </li>
+
+            <!--Common:begin-->
+            <li ui-sref-active="active">
+                <a ui-sref="pie.plan.listCreated()">
+                    <span>My Created Plans</span>
+                </a>
+            </li>
+            <!--Common:end-->
+            <!--Customized:begin-->
+            <!--Customized:end-->
+
+        </ul>
+    </li>
+    <!--Queries:end-->
+    <!--Backlogs:begin-->
+    <li class="active">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-list"></i>
+            <span class="font-bold">Backlogs</span>
+        </a>
+
+        <ul class="nav nav-sub dk">
+
+            <li class="nav-sub-header">
+                <a href>
+                    <span>Backlogs</span>
+                </a>
+            </li>
+
+            <!--Past:begin-->
+            <li>
+                <a href class="auto">
+                    
+                    <i class="glyphicon glyphicon-list"></i>
+                    <span>Past</span>
+                </a>
+
+                <ul class="nav nav-sub dk">
+
+                    <li class="nav-sub-header">
+                        <a href>
+                            <span>Past</span>
+                        </a>
+                    </li>
+
+                    
+                    
+                    
+                    
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1612})">
+                            <span>1612</span>
+                        </a>
+                    </li>
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1701})">
+                            <span>1701</span>
+                        </a>
+                    </li>
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1702})">
+                            <span>1702</span>
+                        </a>
+                    </li>
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1703})">
+                            <span>1703</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--Past:end-->
+            <!--current:begin-->
+            <li>
+                <a href>
+                    
+                    <i class="glyphicon glyphicon-list"></i>
+                    <span>Current</span>
+                </a>
+
+                <ul class="nav nav-sub dk ">
+
+                    <li class="nav-sub-header">
+                        <a href>
+                            <span>Current</span>
+                        </a>
+                    </li>
+
+                    
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1704})">
+                            <span>1704</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--current:end-->
+            <!--further:begin-->
+            <li>
+                <a href class="auto">
+                    
+                    <i class="glyphicon glyphicon-list"></i>
+                    <span>Further</span>
+                </a>
+
+                <ul class="nav nav-sub dk ">
+
+                    <li class="nav-sub-header">
+                        <a href>
+                            <span>Further</span>
+                        </a>
+                    </li>
+
+  
+                    
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1705})">
+                            <span>1705</span>
+                        </a>
+                    </li>
+					<li ui-sref-active="active">
+                        <a ui-sref="pie.plan.backlogs({bcId: 1706})">
+                            <span>1706</span>
+                        </a>
+                    </li>
+				
+                </ul>
+            </li>
+            <!--further:end-->
+
+        </ul>
+    </li>
+    <!--Backlogs:end-->
+    <!-- Executing:begin -->
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>EXECUTING</span>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <!--<i class="glyphicon glyphicon-refresh icon text-primary-dker"></i>-->
+            <i class="fa fa-refresh fa-spin visible-xs-inline-block"></i>
+            <span class="font-bold">Executions</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>Executions</span>
+                </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="pie.task.processes()">
+                    <span>Processes</span>
+                </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="pie.task.sanityCheck()">
+                    <span>SanityCheck</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <!-- Executing:end -->
+    <!--Reports:begin-->
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>REPORTING</span>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+            <span class="font-bold">Reports</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="pie.report.daily({dateRef: 'today'})">
+                    <span>Daily</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="pie.report.weekly({weekRef: 'this'})">
+                    <!--<b class="label bg-info pull-right">N</b>-->
+                    <span>Weekly</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="pie.report.monthly({monthRef: 'this'})">
+                    <!--<b class="label bg-info pull-right">N</b>-->
+                    <span>Monthly</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="pie.report.kpi()">
+                    <span>KPI</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!--Reports:end-->
+
+</ul>

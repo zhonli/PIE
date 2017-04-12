@@ -1,0 +1,52 @@
+﻿<ul ng-controller="ProcessesActionCtrl" class="nav navbar-nav hidden-sm">
+
+    <li ui-sref-active="active" class="dropdown">
+        <a ng-click="detail()" ng-hide="hidDetail" class="dropdown-toggle">
+            <i class="fa fa-newspaper-o visible-xs-inline-block"></i>
+            <span>Detail</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a ng-click="progress()" ng-hide="hidProgress" class="dropdown-toggle">
+            <i class="fa fa-sliders visible-xs-inline-block"></i>
+            <span>Progress</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a ng-click="block()" ng-hide="hidBlock" class="dropdown-toggle">
+            <i class="fa icon-control-pause visible-xs-inline-block"></i>
+            <span>Block</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a ng-click="run()" ng-hide="hidRun" class="dropdown-toggle">
+            <i class="fa icon-control-play visible-xs-inline-block"></i>
+            <span>Run</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a ng-click="abort()" ng-hide="hidCut" class="dropdown-toggle">
+            <i class="fa  fa-circle-o-notch visible-xs-inline-block"></i>
+            <span>Cut</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a ng-click="close()" ng-hide="hidClose" class="dropdown-toggle">
+            <i class="fa fa-circle-o visible-xs-inline-block"></i>
+            <span>Close</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="getDataUri()" ng-hide="hideDataUri">
+            <i class="fa fa-cube visible-xs-inline-block"></i>
+            <span>Data</span>
+        </a>
+    </li>
+
+</ul>

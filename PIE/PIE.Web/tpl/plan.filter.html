@@ -1,0 +1,8 @@
+﻿<div ng-controller="PlanFilter" class="searchbar" style="min-width:680px">
+    <!--<jqx-combo-box jqx-ng-model ng-model="filter.product" jqx-source="products"  jqx-drop-down-width="200" jqx-drop-down-height="250" jqx-display-member="'label'" jqx-value-member="'value'" jqx-width="150" jqx-height="24" jqx-theme="curTheme" jqx-place-holder="'Enter Product'" jqx-animation-type="none" style="display:inline-block; position:absolute;"></jqx-combo-box>-->
+    <jqx-input ng-model="filter.product" jqx-source="products" jqx-display-member='label' jqx-value-member='value' jqx-width="150" jqx-height="24" jqx-theme="curTheme" jqx-place-holder="'Enter Product'"></jqx-input>
+    <jqx-input ng-model="filter.planTitle" jqx-width="150" jqx-height="24" jqx-theme="curTheme" jqx-place-holder="'Plan Name'"></jqx-input>
+    <jqx-input ng-model="filter.planOwner" jqx-source="resources" jqx-display-member='Alias' jqx-value-member='Alias' jqx-width="150" jqx-height="24" jqx-theme="curTheme" jqx-place-holder="'Plan Owner'"></jqx-input>
+    <jqx-input ng-model="filter.planStatus" jqx-source="status" jqx-width="150" jqx-height="24" jqx-theme="curTheme" jqx-place-holder="'Plan Status'"></jqx-input>
+    <jqx-button jqx-width="60" jqx-theme="curTheme" jqx-on-click="click">Search</jqx-button>
+</div>

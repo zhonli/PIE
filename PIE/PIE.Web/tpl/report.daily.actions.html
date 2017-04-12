@@ -1,0 +1,30 @@
+﻿<ul ng-controller="ReportActionCtrl" class="nav navbar-nav hidden-sm">
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="reDesginReport()" ng-hide="hideReDesginReport">
+            <i class="fa fa-edit visible-xs-inline-block"></i>
+            <span>ReDesgin</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="emailReport()" ng-hide="hideEmailReport">
+            <i class="glyphicon glyphicon-envelope visible-xs-inline-block"></i>
+            <span>Email</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="previousReport()" ng-hide="hidePreviousReport">
+            <i class="fa icon-control-rewind visible-xs-inline-block"></i>
+            <span>Previous</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="nextReport()" ng-hide="hideNextReport">
+            <i class="fa icon-control-forward visible-xs-inline-block"></i>
+            <span>Next</span>
+        </a>
+    </li>
+</ul>

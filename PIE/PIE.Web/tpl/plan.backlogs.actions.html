@@ -1,0 +1,53 @@
+﻿ <!-- link and dropdown -->
+<ul ng-controller="PlanActionCtrl" class="nav navbar-nav hidden-sm">
+    
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="newPlan()" ng-hide="hideNewPlan">
+            <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+            <span>New</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="detailPlan()" ng-hide="hideDetailPlan">
+            <i class="fa fa-newspaper-o visible-xs-inline-block"></i>
+            <span>detail</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="deletePlan()" ng-hide="hideDeletePlan">
+            <i class="fa fa-trash-o visible-xs-inline-block"></i>
+            <span>Delete</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="assignPlan()" ng-hide="hideAssignPlan">
+            <i class="fa fa-users visible-xs-inline-block"></i>
+            <span>Assignment</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="mapVSOTask()" ng-hide="hideMapVSOTask">
+            <i class="fa fa-external-link visible-xs-inline-block"></i>
+            <span>VSOMapping</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="goToExecutePlan()" ng-hide="hideExecutePlan">
+            <i class="fa fa-refresh visible-xs-inline-block"></i>
+            <span>Execute</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active" class="dropdown">
+        <a class="dropdown-toggle" ng-click="getDataUri()" ng-hide="hideDataUri">
+            <i class="fa fa-cube visible-xs-inline-block"></i>
+            <span>Data</span>
+        </a>
+    </li>
+</ul>
+

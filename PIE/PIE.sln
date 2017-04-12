@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.Web", "PIE.Web\PIE.Web.csproj", "{65C37CED-8551-43C7-A232-841FB0131FBC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4} = {B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.Model", "PIE.Model\PIE.Model.csproj", "{397A9B57-76AE-4BB7-A0D2-371FB6CEA656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.ExternalService", "PIE.ExternalService\PIE.ExternalService.csproj", "{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.Database", "PIE.Database\PIE.Database.csproj", "{00DAC1A2-0DA0-4DA3-BEAC-81F407F23922}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIE.API", "PIE.API\PIE.API.csproj", "{83A48717-776B-492F-8F79-68FC932BA905}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65C37CED-8551-43C7-A232-841FB0131FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65C37CED-8551-43C7-A232-841FB0131FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65C37CED-8551-43C7-A232-841FB0131FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65C37CED-8551-43C7-A232-841FB0131FBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397A9B57-76AE-4BB7-A0D2-371FB6CEA656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397A9B57-76AE-4BB7-A0D2-371FB6CEA656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397A9B57-76AE-4BB7-A0D2-371FB6CEA656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397A9B57-76AE-4BB7-A0D2-371FB6CEA656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00DAC1A2-0DA0-4DA3-BEAC-81F407F23922}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00DAC1A2-0DA0-4DA3-BEAC-81F407F23922}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00DAC1A2-0DA0-4DA3-BEAC-81F407F23922}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00DAC1A2-0DA0-4DA3-BEAC-81F407F23922}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A48717-776B-492F-8F79-68FC932BA905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A48717-776B-492F-8F79-68FC932BA905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A48717-776B-492F-8F79-68FC932BA905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A48717-776B-492F-8F79-68FC932BA905}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

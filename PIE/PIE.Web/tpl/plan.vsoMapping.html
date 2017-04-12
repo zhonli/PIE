@@ -1,0 +1,182 @@
+﻿
+<div ng-controller="VSOMapping" ng-init="app.settings.appActions='tpl/plan.vsoMapping.actions.html'" class="wrapper-md">
+    <div>
+        <div class="row">
+            <div class="col-sm-7">
+                <form name="frmLink" class="form-horizontal form-validation">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>Mapping VSO Task</strong>
+                        </div>
+
+                        <div class="panel-body">
+                            <div class="form-group" ng-show="plan.Title">
+                                <label class="col-sm-3 control-label">Plan</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="txtPlanName" class="form-control" value="{{plan.Title}}" readonly="readonly">
+                                </div>
+                            </div>
+
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">With VSO</label>
+                                <div class="col-sm-9">
+                                    <select name="taskSourceID" class="form-control m-t" ng-disabled="retriving || taskGroupRetriving" ng-model="selectedSource" ng-change="sourceSelected()" ng-options="s as s.FriendlyName for s in sources track by s.ID" required></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label sr-only">Mode</label>
+                                <div class="col-md-9" ng-init="mode='LinkTask'" ng-click="switchModel()">
+                                    <input type="radio" name="tfsAssociateMode" id="linkVSOWorkItem" value="LinkTask" ng-model="mode"> Existed Quality Task
+                                    <input type="radio" name="tfsAssociateMode" id="newVSOWorkItem" value="NewTask" ng-model="mode" ng-disabled="existedLink"> New Quality Task
+                                </div>
+                            </div>
+
+                            <div ng-switch="mode">
+                                <div ng-switch-when="NewTask">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Task Parent ID</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" name="numTaskParentID" class="form-control" placeholder="Task Parent ID" ng-model="$parent.taskGroupId" ng-change="taskGroupIDChanged()" ng-blur="retriveTaskParent($parent.taskGroupId)">
+                                            <i ng-show="taskGroupRetriving" class="fa fa-spinner fa-spin visible-xs-inline-block"></i>
+                                            <span class="text-primary">{{retrivedTaskParent.Title}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Task Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Task Title" ng-model="workItem.Title" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Area Path</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Area" ng-model="workItem.AreaPath" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Iteration Path</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Iteration" ng-model="workItem.IterationPath" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Product Family</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Product Family" ng-model="workItem.ProductFamily" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Product</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Product" ng-model="workItem.Product" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Release</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Release" ng-model="workItem.Release" >
+                                        </div>
+                                    </div>
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">TFS Account</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Enter preferred email" ng-model="tfsIdentity.Email" ng-blur="retriveTfsIdentity(tfsIdentity.Email)" required>
+                                            <i ng-show="tfsIdentityRetriving" class="fa fa-spinner fa-spin visible-xs-inline-block"></i>
+                                            <span class="text-primary">{{retrivedTfsIdentity.DisplayName}}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div ng-switch-when="LinkTask">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Task Parent ID</label>
+                                        <div class="col-sm-9">
+                                            <input type="number" name="numTaskParentID" class="form-control" placeholder="Existed Task Parent ID" ng-model="retrivedWorkItem.TaskGroupID" ng-disabled="!taskRetrived">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Task ID</label>
+                                        <div class="col-sm-9">
+
+                                            <input type="number" class="form-control" placeholder="Existed Task ID" ng-model="workItem.Id" ng-blur="retriveTask(workItem.Id)" required>
+                                            <i ng-show="retriving" class="fa fa-spinner fa-spin visible-xs-inline-block"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Task Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Task Title" ng-model="retrivedWorkItem.Title" readonly="readonly">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Area Path</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Area" ng-model="retrivedWorkItem.AreaPath" readonly="readonly">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Iteration Path</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Iteration" ng-model="retrivedWorkItem.IterationPath" readonly="readonly">
+                                        </div>
+                                    </div>
+
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Product Family</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Product Family" ng-model="retrivedWorkItem.ProductFamily" readonly="readonly">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Product</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Product" ng-model="retrivedWorkItem.Product" readonly="readonly">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Release</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="Release" ng-model="retrivedWorkItem.Release" readonly="readonly">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            
+                        </div>
+
+                        <footer class="panel-footer text-right bg-light lter">
+                            <span ng-show="showFailed"><label style="color:red">Failed</label></span>
+                            <button type="submit" class="btn btn-success" style="width:80px" ng-click="submit()" ng-show="!showNext" ng-disabled="actionWaiting || actionDisabled()">Save</button>
+                        </footer>
+
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿<div ng-controller="UpdateProgress" class="wrapper-md" style="padding-top:0">
+
+    <form name="frmUpdateProgress" class="form-horizontal">
+        <div>
+            <h4 class="font-thin m-t-none m-b-none text-primary-lt">Progress Tracking</h4>
+            <span class="m-b block text-sm text-muted">{{curProcess.PID}} (Tracking Cycle is {{interval}} {{intervalUnit}})</span>
+            <div ui-jq="plot" ui-refresh="progressSerial" ui-options="
+                 [
+                 { data: {{progressSerial}} , lines: { show: true, lineWidth: 1, fill:true, fillColor: { colors: [{opacity: 0.2}, {opacity: 0.8}] } } }
+                 ],
+                 {
+                 colors: ['#e8eff0'],
+                 series: { shadowSize: 3 },
+                 xaxis:{ show:false },
+                 yaxis:{ font: { color: '#a1a7ac' } },
+                 grid: { hoverable: true, clickable: true, borderWidth: 0, color: '#dce5ec' },
+                 tooltip: true,
+                 tooltipOpts: { content: '%s of %x.1 is %y.4' , defaultTheme: false, shifts: { x: 10, y: -25 } }
+                 }" style="height:200px">
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div ng-switch="curProcess.Type">
+            <div ng-switch-when="Execution">
+                <div>
+                    Completed : <input type="number" style="width:50px; border: none" min="0.00" max="{{curProcess.ActualWorkhours}}" ng-model="curProcess.CompletedWorkhours" ng-change="calcActualWorkhours()" />
+                    Actual : <input type="number" style="width:50px; border: none" min="{{curProcess.CompletedWorkhours}}" ng-model="curProcess.ActualWorkhours" ng-change="calcCompletedWorkhours()"/>
+                    Progress: {{curProcess.Progress | percentSign}}
+                </div>
+            </div>
+            <div ng-switch-when="NonExecution">
+                <div>
+                    Completed : <input type="number" style="width:50px; border: none" min="0.00" max="{{curProcess.ActualWorkhours}}" ng-model="curProcess.CompletedWorkhours" />
+                    Actual : <input type="number" style="width:50px; border: none" min="{{curProcess.CompletedWorkhours}}" ng-model="curProcess.ActualWorkhours" />
+                    Progress: {{calcProgress() | percentSign}}
+                </div>
+            </div>
+        </div>    
+                
+        <br />
+        <div class="form-group">
+            <div class="col-sm-12">
+                <textarea class="form-control" rows="3" placeholder="Comments for progress updating" ng-model="comment"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-success" ng-click="submit()" ng-disabled="inProgress || !curProcess.CompletedWorkhours || !curProcess.ActualWorkhours">Submit</button>
+
+    </form>
+</div>

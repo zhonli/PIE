@@ -1,0 +1,21 @@
+﻿<!--<div ui-view class="pie"></div>-->
+<!-- header -->
+<div ng-include=" 'tpl/blocks/header.html' " class="app-header navbar"></div>
+<!-- / header -->
+<!-- menu -->
+<div ng-include=" 'tpl/blocks/aside.html' " class="app-aside hidden-xs bg-white">
+</div>
+<!-- / menu -->
+<!-- content -->
+<div class="app-content">
+    <div class="app-content-body fade-in-up" ui-view></div>
+</div>
+<!-- /content -->
+<!-- aside right -->
+<!-- / aside right -->
+<!-- toaster directive -->
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+<!-- / toaster directive -->
+<!-- footer -->
+<!-- / footer -->
+

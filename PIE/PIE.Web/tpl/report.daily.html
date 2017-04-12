@@ -1,0 +1,11 @@
+﻿<div ng-controller="DailyReport" ng-init="app.settings.appActions='tpl/report.daily.actions.html' ">
+    <div ng-controller="ReportFilter">
+        <tabset class="tab-container">
+            
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" ng-click="switch($index)" active="tab.active" disabled="tab.disabled">
+                <ng-include src="tab.content" onload=""></ng-include>
+            </tab>
+            
+        </tabset>
+    </div>
+</div>

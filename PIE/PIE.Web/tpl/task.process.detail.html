@@ -1,0 +1,123 @@
+﻿<div ng-controller="TaskDetail" class="wrapper-md">
+    <form name="frmPlan" class="form-horizontal" style="margin-top:10px">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Type</label>
+            <div class="col-sm-9">
+                <select name="planType" class="form-control m-t" ng-model="plan.Type" ng-init="plan.Type = 'Execution'" required>
+                    <option value="Execution">Execution</option>
+                    <option value="NonExecution">None-Execution</option>
+                </select>
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Title</label>
+            <div class="col-sm-9">
+                <input type="text" name="title" class="form-control" placeholder="Plan Title" ng-model="plan.Title" required>
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Plan SDate</label>
+            <div class="col-sm-9">
+                <div class="input-group w-md">
+                    <input type="text" name="startDate" placeholder="Plan Start Date" class="form-control" datepicker-popup="{{format}}" ng-model="plan.StartDate" max-date='plan.EndDate' is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Plan EDate</label>
+            <div class="col-sm-9">
+                <div class="input-group w-md">
+                    <input type="text" name="endDate" placeholder="Plan End Date" class="form-control" datepicker-popup="{{format}}" ng-model="plan.EndDate" min-date='plan.StartDate' is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Plan Workload</label>
+            <div class="col-sm-9">
+                <input type="number" step="any" name="planWorkload" class="form-control" placeholder="Plan Workhours" ng-model="plan.Workhours" required>
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Product</label>
+            <div class="col-sm-9">
+                <input type="text" name="product" class="form-control" placeholder="Select Product" ng-model="plan.Component">
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div ng-switch="plan.Type">
+            <div ng-switch-when="Execution">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Case Number</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="caseNumber" class="form-control" placeholder="Test Case Number" ng-model="$parent.testCollateral.TestCaseCount" required>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Lang Number</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="languageNumber" class="form-control" placeholder="Language Number" ng-model="$parent.testCollateral.LanguageCount" required>
+                    </div>
+                </div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
+
+            </div>
+            <div ng-switch-when="NonExecution">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Priority</label>
+            <div class="col-sm-9">
+                <select class="form-control m-t" ng-model="plan.Priority" ng-init="plan.Priority = 'middle'">
+                    <option value="low">low</option>
+                    <option value="middle">middle</option>
+                    <option value="high">high</option>
+                </select>
+            </div>
+        </div>
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Description</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" rows="3" placeholder="Plan Description" ng-model="plan.Description"></textarea>
+            </div>
+        </div>
+
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Tags</label>
+            <div class="col-sm-9">
+                <select ui-jq="chosen" ng-model="Tags" multiple class="form-control" data-placeholder="Select Tags">
+                    <option value="Auto">Auto</option>
+                    <option value="Case Creation/Update/Clean-Up">Case Creation/Update/Clean-Up</option>
+                    <option value="Bug Regression">Bug Regression</option>
+                    <option value="Cross Team">Cross Team</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>

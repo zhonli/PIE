@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1F7FFC5-02C6-4A6D-A8FA-BA2248328DA4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PIEM.ExternalService</RootNamespace>
+    <AssemblyName>PIEM.ExternalService</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WTT.Diagnostics, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\Microsoft.WTT.Diagnostics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WTT.UI.Controls.ObjectControls">
+      <HintPath>..\packages\Microsoft.WTT.UI.2.7.2287\lib\Microsoft.WTT.UI.Controls.ObjectControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WTTObservableSqlProvider, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTObservableSqlProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMAsset, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMAsset.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMBase, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMDimension, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMDimension.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMFailure, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMFailure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMFailureCache, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMFailureCache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMFeature, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMFeature.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMIdentity, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMIdentity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMJobs, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMJobs.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMNotification, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMNotification.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMParameter, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMParameter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMResource, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMResource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMSchedule, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMSchedule.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMSQLProvider, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMSQLProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTOMStage, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTOMStage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WTTTrace, Version=2.2.2098.0, Culture=neutral, PublicKeyToken=399d95e6b32b7391, processorArchitecture=MSIL">
+      <HintPath>..\packages\WTTOM.2.8.3100\lib\WTTTrace.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.Build.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.TestManagement.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.TestManagement.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.WorkItemTracking.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.TeamFoundation.WorkItemTracking.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.VisualStudio.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TeamFoundation.Dev14.14.0.22130\lib\Microsoft.VisualStudio.Services.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ResultService.cs" />
+    <Compile Include="WTT\JobHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TFSQuery.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Compile Include="WTT\ResultCollectionHelper.cs" />
+    <Compile Include="ResultContext.cs" />
+    <Compile Include="WTT\WTTBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PIE.Database\PIE.Database.csproj">
+      <Project>{00dac1a2-0da0-4da3-beac-81f407f23922}</Project>
+      <Name>PIEM.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PIE.Model\PIE.Model.csproj">
+      <Project>{397a9b57-76ae-4bb7-a0d2-371fb6cea656}</Project>
+      <Name>PIE.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Baseclass.Contrib.Nuget.Output.2.1.0\build\net40\Baseclass.Contrib.Nuget.Output.targets" Condition="Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.1.0\build\net40\Baseclass.Contrib.Nuget.Output.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Baseclass.Contrib.Nuget.Output.2.1.0\build\net40\Baseclass.Contrib.Nuget.Output.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Baseclass.Contrib.Nuget.Output.2.1.0\build\net40\Baseclass.Contrib.Nuget.Output.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

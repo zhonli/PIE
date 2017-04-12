@@ -1,0 +1,48 @@
+﻿<!-- navbar header -->
+<div class="navbar-header bg-white">
+    <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+        <i class="glyphicon glyphicon-cog"></i>
+    </button>
+    <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside" ui-scroll="app">
+        <i class="glyphicon glyphicon-align-justify"></i>
+    </button>
+    <!-- brand -->
+    <a href="#/" class="navbar-brand text-lt">
+
+        <i class="glyphicon glyphicon-th"></i>
+        <img src="img/pie.png" alt="." class="hide">
+        <span class="hidden-folded m-l-md">{{app.name}} </span>
+    </a>
+    <!-- / brand -->
+</div>
+<!-- / navbar header -->
+<!-- navbar collapse -->
+<div class="collapse pos-rlt navbar-collapse box-shadow bg-white">
+    <!-- buttons -->
+    <div class="nav navbar-nav hidden-xs">
+        <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+            <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+        </a>
+    </div>
+    <!-- / buttons -->
+    <div ng-include="app.settings.appActions"></div>
+    <!-- nabar right -->
+    <ul class="nav navbar-nav navbar-right">
+
+        
+        <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="icon-bell fa-fw"></i>
+                <span class="visible-xs-inline">Notifications</span>
+                <!--<span class="badge badge-sm up bg-danger pull-right-xs">2</span>-->
+            </a>
+        </li>
+        <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle clear" dropdown-toggle>
+                <span class="hidden-sm hidden-md">{{user.identity.name}}</span>
+            </a>
+        </li>
+    </ul>
+    <!-- / navbar right -->
+</div>
+<!-- / navbar collapse -->

@@ -1,0 +1,47 @@
+<table class="gridtable" ng-show="items.length > 0" style="min-width:1180px">
+    <thead>
+        <tr style="height:0;">
+            <td style="width:65px"></td>
+            <td style="width:80px"></td>
+            <td style="width:75px"></td>
+            <td style="width:85px"></td>
+            <td style="min-width:300px"></td>
+            <td style="width:70px"></td>
+            <td style="width:60px"></td>
+            <td style="width:85px"></td>
+            <td style="width:90px"></td>
+            <td style="width:90px"></td>
+            <td style="width:70px"></td>
+            <td style="width:70px"></td>
+            <td style="width:70px"></td>
+        </tr>
+        <tr>
+            <th colspan="13">{{groupName}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat='item in items = (source | filter:userFilter:true)'>
+            <td ng-style="{background: color(item)}">{{item.TaskLink.TaskID}}</td>
+            <td>{{item.TaskLink.TaskID != 9887147 && item.ComponentID || ''}}</td>
+            <td>{{item.CreateBy|alias}}</td>
+            <td>{{item.Type}}</td>
+            <td>{{item.Title}}</td>
+            <td>{{item.Process.ResultSummaries[0].RSID}}</td>
+            <td>{{item.IterationPath}}</td>
+            <td>{{item.CreateBy|alias}}</td>
+            <td>{{item.StartDate|date:'MM/dd'}}~{{item.EndDate|date:'MM/dd'}}</td>
+            <td>{{item.Process.StartOn|date:'MM/dd'}}~{{item.Process.EndOn|date:'MM/dd'}}</td>
+            <td>{{item.Workhours}}</td>
+            <td>{{item.Process.Progress|percentSign}}</td>
+            <td>{{item.Process.PassRate|percentSign}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="13">
+                Completed Workload: {{completedWorkload | currency:'':2}} <br />
+                <span ng-show="groupName !='Closed Task'">Uncompleted Workload: {{uncompletedWorkload | currency:'':2}}</span>
+            </td>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,24 @@
+﻿<div class="wrapper-md">
+    <div ng-controller="NotificationController">
+        <div class="row">
+            <div class="col-sm-8">
+                <form name="frmPlan" class="form-horizontal form-validation">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>Send Notification</strong>
+                        </div>
+                        <div class="panel-body">
+
+                        </div>
+
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-success" ng-click="save()" ng-disabled="frmPlan.title.$invalid || frmPlan.startDate.$invalid || frmPlan.endDate.$invalid || frmPlan.planWorkload.$invalid">Notify</button>
+ 
+                        </footer>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

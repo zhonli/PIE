@@ -1,0 +1,81 @@
+﻿<div>
+    <h4>Overall Status</h4>
+    <ul>
+        <li>
+            Workload Status
+            <ul>
+                <li>Total Workload: {{totalWorkload | currency:'':2 }} hr</li>
+                <li>Completed Workload: {{completedWorkload | currency:'':2 }} hr</li>
+                <li>Left Workload: {{uncompletedWorkload | currency:'':2 }} hr</li>
+            </ul>
+        </li>
+        <li>
+            No blocking issue.
+        </li>
+    </ul>
+
+    <h4>Test Summary</h4>
+    <table class="layout">
+        <tbody>
+            <tr>
+                <td>
+                    <table class="gridtable">
+                        <thead>
+                            <tr>
+                                <th style="width: 65px">PID</th>
+                                <th style="width:80px">CID</th>
+                                <th style="width:75px">Created by</th>
+                                <th style="width:85px">Task Type</th>
+                                <th style="min-width:300px">Task Name</th>
+                                <th style="width:70px">RCID</th>
+                                <th style="width:60px">Release</th>
+                                <th style="width:85px">Assigned To</th>
+                                <th style="width:90px">Planed Duration</th>
+                                <th style="width:90px">Actual Duration</th>
+                                <th style="width:70px">Workload (hr)</th>
+                                <th style="width:70px">Overall Progress</th>
+                                <th style="width:70px">Overall Pass Rate</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <rpt-list source="noneClosedItems" group-name="Execution Tasks" filter="{ Type: 'Execution' }"></rpt-list>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <rpt-list source="noneClosedItems" group-name="Automation Tasks" filter="{ Tags: 'Auto' }"></rpt-list>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <rpt-list source="noneClosedItems" group-name="Case Creation/Update/Clean-Up Tasks" filter="{ Tags: 'Case Creation/Update/Clean-Up' }"></rpt-list>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <rpt-list source="noneClosedItems" group-name="Bug Regression Tasks" filter="{ Tags: 'Bug Regression' }"></rpt-list>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <rpt-list source="noneClosedItems" group-name="Other Tasks" filter="{ Tags: 'Other' }"></rpt-list>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <rpt-list source="noneClosedItems" group-name="Cross Team Support Tasks" filter="{ Tags: 'Cross Team' }"></rpt-list>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <rpt-list source="closedItems" group-name="Closed Task"></rpt-list>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

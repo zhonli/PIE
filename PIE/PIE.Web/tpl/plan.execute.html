@@ -1,0 +1,86 @@
+﻿
+<div ng-controller="PlanExecution" ng-init="app.settings.appActions='tpl/plan.execution.actions.html'" class="wrapper-md">
+    <div>
+        <div class="row">
+            <div class="col-sm-7">
+             
+                <form name="frmExe" class="form-horizontal form-validation">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>Execute Plan</strong>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group" ng-show="plan.Title">
+                                <label class="col-sm-3 control-label">Plan</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="txtPlanName" class="form-control" value="{{plan.Title}}" readonly="readonly">
+                                </div>
+                            </div>
+
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">With WTT</label>
+                                <div class="col-sm-9">
+                                    <select name="taskSourceID" class="form-control m-t" ng-model="selectedWttSource" ng-options="s as s.FriendlyName for s in wttSources track by s.ID" required></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label sr-only">Mode</label>
+                                <div class="col-md-9" ng-init="wttMode='LinkRC'">
+                                    <input type="radio" name="wttAssociateMode" id="linkWttRC" value="LinkRC" ng-model="wttMode"> Existed Result Collection
+                                    <input type="radio" name="wttAssociateMode" id="newWttRC" value="NewRC" ng-model="wttMode" ng-disabled="existedRCs"> New Result Collection
+                                </div>
+                            </div>
+
+                            <div ng-switch="wttMode">
+                                <div ng-switch-when="NewRC">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">RC Title</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="numTaskID" class="form-control" placeholder="RC Title" ng-model="rcTitle" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-switch-when="LinkRC">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">RCIDs</label>
+                                        <div class="col-sm-9">
+                                            <ui-select multiple ng-model="rc.selections" ng-disabled="rcSelectorIsDisabled()" theme="bootstrap" style="max-width: 330px; min-height:34px">
+                                                <ui-select-match allow-clear="true" placeholder="Select RCIDs">{{$item.ID}}</ui-select-match>
+                                                <ui-select-choices repeat="rc in taskRelatedRCs | propsFilter : {Name: $select.search}">
+                                                    <div ng-bind-html="rc.ID | highlight: $select.search"></div>
+                                                    <small>
+                                                        {{rc.Name | highlight: $select.search}}
+                                                    </small>
+                                                </ui-select-choices>
+                                            </ui-select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-3 control-label">                  
+                                            <i ng-show="appending" class="fa fa-spinner fa-spin visible-xs-inline-block"></i>
+                                            <i class="fa fa-fw fa-plus visible-xs-inline-block" ng-click="appendRC(appendingRC.ID)"></i>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="number" name="numTaskID" class="form-control" placeholder="Append RC by RCID ( click +)" ng-model="appendingRC.ID"  >                                       
+                                            <span ng-show="appendingError"><label style="color:red">{{appendingError}}</label></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <footer class="panel-footer text-right bg-light lter">
+                                <span ng-show="showExeFailed"><label style="color:red">Failed</label></span>
+                                <button class="btn btn-success" ng-disabled="rc.selections.length == 0 || actionWaiting || showNext" ng-click="execute()">Execute</button>
+                                <button class="btn btn-success" ng-show="showNext" ng-click="continue()">Next</button>
+                            </footer>
+                        </div>
+                   </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

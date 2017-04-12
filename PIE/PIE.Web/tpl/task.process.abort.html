@@ -1,0 +1,12 @@
+﻿<div ng-controller="AbortProcess" class="wrapper-md">
+
+    <form name="frmUpdateProgress" class="form-horizontal">
+        <div class="form-group">
+     
+            <div class="col-sm-12">
+                <textarea class="form-control" rows="3" placeholder="Cut Reason" ng-model="comment"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-success" ng-click="submit()" ng-disabled="inProgress">{{inUpdatingCycle && 'Update'|| 'Submit'}}</button>
+    </form>
+</div>

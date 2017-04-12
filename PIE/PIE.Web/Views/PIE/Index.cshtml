@@ -1,0 +1,168 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Plan & Tasks";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIE</title>
+    <!-- pie load-->
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/animate.css" type="text/css" />
+
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/app.css" type="text/css" />
+
+    <link rel="stylesheet" href="~/vendor/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="~/vendor/jqwidgets/styles/jqx.bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="~/vendor/jquery/jqgantt/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="~/vendor/modules/angular-slider/angular-slider.css" type="text/css" />
+    <link rel="stylesheet" href="~/vendor/modules/angular-ui-select/select.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/vendor/modules/angularjs-toaster/toaster.css" type="text/css"/>
+</head>
+<body>
+    <div ng-app="pie" ng-controller="PieCtrl" class="app" ng-class="{'app-header-fixed': true, 'app-aside-fixed': true, 'app-aside-folded':app.settings.asideFolded}" ui-view></div>
+
+    <div style="display:none">
+        @*@Html.Hidden("hidIdentityName", this.Context.User.Identity.Name)*@
+        @Html.Hidden("hidIdentityName", "FAREAST\\v-qzha")
+        @Html.Hidden("hidBaseUri", "http://localhost:29841/odata/")     
+    </div>
+
+    <!-- pie load-->
+    <script src="~/vendor/jquery/jquery-1.10.2.js"></script>
+    <script src="~/vendor/libs/underscore.js"></script>
+
+    <script src="~/vendor/angular/angular.js"></script>
+    <script src="~/vendor/angular/angular-animate.js"></script>
+    <script src="~/vendor/angular/ui-router.js"></script>
+
+    <script src="~/vendor/angular/ui-bootstrap-tpls.js"></script>
+    <script src="~/vendor/angular/angular-resource.js"></script>
+    <script src="~/vendor/angular/angular-touch.js"></script>
+    <script src="~/vendor/angular/angular-sanitize.js"></script>
+
+    <script src="~/vendor/angular/ngStorage.js"></script>
+    <script src="~/vendor/angular/ocLazyLoad.js"></script>
+    <script src="~/vendor/angular/ui-utils.js"></script>
+
+    <script src="~/vendor/jqwidgets/jqxcore.js"></script>
+
+    <!--lazy-->
+    <script src="~/vendor/jqwidgets/jqxdata.js"></script>
+
+    <script src="~/vendor/jqwidgets/jqxbuttons.js"></script>
+    <script src="~/vendor/jqwidgets/jqxscrollbar.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.edit.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.selection.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.sort.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.aggregates.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.columnsresize.js"></script>
+    <script src="~/vendor/jqwidgets/jqxmenu.js"></script>
+    <script src="~/vendor/jqwidgets/jqxinput.js"></script>
+    <script src="~/vendor/jqwidgets/jqxnumberinput.js"></script>
+    <script src="~/vendor/jqwidgets/jqxcalendar.js"></script>
+    <script src="~/vendor/jqwidgets/jqxdatetimeinput.js"></script>
+    <script src="~/vendor/jqwidgets/jqxgrid.pager.js"></script>
+    <script src="~/vendor/jqwidgets/jqxdropdownlist.js"></script>
+    <script src="~/vendor/jqwidgets/jqxdropdownbutton.js"></script>
+    <script src="~/vendor/jqwidgets/jqxlistbox.js"></script>
+    <script src="~/vendor/jqwidgets/jqxcombobox.js"></script>
+    <script src="~/vendor/jqwidgets/jqxtabs.js"></script>
+    <script src="~/vendor/jqwidgets/jqxpanel.js"></script>
+    <script src="~/vendor/jqwidgets/jqxtree.js"></script>
+
+    <script src="~/vendor/jqwidgets/jqxangular.js"></script>
+    
+    <script src="~/vendor/jquery/jqgantt/jquery.fn.gantt.js"></script>
+
+    <script src="~/vendor/libs/odatajs-4.0.0.js"></script>
+    <script src="~/vendor/libs/screenfull.min.js"></script>
+    <script src="~/vendor/libs/lodash.min.js"></script>
+    <script src="~/vendor/libs/clipboard/clipboard.min.js"></script>
+
+    <!--app-->
+    <script src="~/js/app.js"></script>
+    <script src="~/js/app.config.lazyload.js"></script>
+    <script src="~/js/app.config.js"></script>
+    <script src="~/js/app.config.router.js"></script>
+    <script src="~/js/main.js?v=2016122103"></script>
+
+    <!--lazy module-->
+    <script src="~/vendor/modules/angular-slider/angular-slider.min.js"></script>
+    <script src="~/vendor/modules/angular-ui-select/select.min.js"></script>
+    <script src="~/vendor/modules/angularjs-toaster/toaster.js"></script>
+    <script src="~/vendor/modules/angularjs-ngclipboard/ngclipboard.js"></script>
+
+    <script src="~/js/libs/pie.datetime.js"></script>
+    <script src="~/js/filters/pie.filter.alias.js"></script>
+    <script src="~/js/filters/pie.filter.percentSign.js"></script>
+    <script src="~/js/filters/pie.filter.propsFilter.js"></script>
+
+    <script src="~/js/services/pie.ui.loader.js"></script>
+    <script src="~/js/services/pie.bc.service.js"></script>
+    <script src="~/js/services/pie.data.service.js"></script>
+    <script src="~/js/services/pie.dsn.backlog.js"></script>
+    <script src="~/js/services/pie.dsn.process.js"></script>
+    <script src="~/js/services/pie.dsn.report.js"></script>
+
+    <script src="~/js/directives/ui-nav.js"></script>
+    <script src="~/js/directives/ui-toggleclass.js"></script>
+
+    <script src="~/js/directives/ui-jq.js"></script>
+
+    <script src="~/js/controllers/pie.com.datePicker.js"></script>
+    <script src="~/js/controllers/pie.com.productChosen.js"></script>
+
+    <!-- plan lazy-->
+    <script src="~/js/app/plan/pie.plan.appCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.backlogsCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.queryCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.queryEditor.js"></script>
+    <script src="~/js/app/plan/pie.plan.listCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.ganttCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.kanbanCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.costCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.resUsageCtrl.js"></script>
+    <script src="~/js/app/plan/pie.plan.actionCtrl.js"></script>
+
+    <script src="~/js/app/plan/pie.plan.filter.js"></script>
+
+    <script src="~/js/app/plan/pie.plan.creation.js"></script>
+    <script src="~/js/app/plan/pie.plan.detail.js"></script>
+    <script src="~/js/app/plan/pie.plan.assignment.js"></script>
+    <script src="~/js/app/plan/pie.plan.vsoMapping.js"></script>
+    <script src="~/js/app/plan/pie.plan.execution.js"></script>
+
+    <!-- task lazy-->
+    <script src="~/js/app/task/pie.task.taskMgr.js"></script>
+    <script src="~/js/app/task/pie.task.processActionCtrl.js"></script>
+    <script src="~/js/app/task/pie.task.processesCtrl.js"></script>
+    <script src="~/js/app/task/pie.task.detail.js"></script>
+    <script src="~/js/app/task/pie.task.updateProgress.js"></script>
+    <script src="~/js/app/task/pie.task.closeProcess.js"></script>
+    <script src="~/js/app/task/pie.task.blockProcess.js"></script>
+    <script src="~/js/app/task/pie.task.abortProcess.js"></script>
+    <script src="~/js/app/task/pie.task.performanceCtrl.js"></script>
+    <script src="~/js/app/task/pie.task.resLoadCtrl.js"></script>
+    <script src="~/js/app/task/pie.task.sanityCheck.js"></script>
+    <script src="~/js/app/task/pie.task.sanityCheckActionCtrl.js"></script>
+    <!-- report lazy-->
+    <script src="~/js/app/report/pie.report.appCtrl.js"></script>
+    <script src="~/js/app/report/pie.report.actionCtrl.js"></script>
+    <script src="~/js/app/report/pie.report.filter.js"></script>
+    <script src="~/js/app/report/pie.report.daily.widget.list.js"></script>
+    <script src="~/js/app/report/pie.report.dailyReport.js"></script>
+    <script src="~/js/app/report/pie.report.weeklyReport.js"></script>
+    <script src="~/js/app/report/pie.report.monthlyReport.js"></script>
+</body>
+</html>
+
+
+

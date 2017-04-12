@@ -1,0 +1,25 @@
+﻿<div ng-controller="CloseProcess" class="wrapper-md">
+
+    <form name="frmCloseProcess" class="form-horizontal">
+        <div class="form-group" style="margin-top:10px">
+            <div class="col-sm-12">
+                Actual Workhours : <input type="number" style="width:50px; border:none" min="0.00" ng-model="curProcess.ActualWorkhours" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12"  ng-controller="DatepickerCtrl">
+                Actual End Date : 
+                <div class="input-group w-md" style="width: 170px; display: inline-block;">
+                    <input type="text" name="endDate" style="border:none" placeholder="Actual End Date" class="form-control" ng-click="open($event)" datepicker-popup="{{format}}" ng-model="curProcess.EndOn"  min-date='curProcess.StartOn' is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <textarea class="form-control" rows="3" placeholder="Comments" ng-model="comment"></textarea>
+            </div>
+        </div>
+        <button class="btn btn-success" ng-click="submit()" ng-disabled="actionWaiting || !curProcess.EndOn">Submit</button>
+    </form>
+
+</div>
